@@ -33,10 +33,9 @@ public class StorageWidget extends AppWidgetProvider {
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
 
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.storage_widget);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
+        views.setTextViewText(R.id.appwidget_text, StorageSpace.percentFree());
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
